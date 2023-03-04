@@ -22,13 +22,13 @@
 }
 
 .navbar__logButton {
-  padding: 0.8em;
+  padding: 0.5em;
   border-radius: 30px;
   background-color:cornflowerblue;
   color: white;
   font-size: 16px;
   font-weight: 700;
-  margin-top: -0.5em;
+  margin-top: -1.2em;
 }
 
 .navbar__logButton:hover {
@@ -42,6 +42,6 @@
   }
   .navbar__pages {
     flex-direction: row;
-    margin-right: 3em;
+    margin-right: 1em;
   }
 }

@@ -1,4 +1,3 @@
-/* eslint-disable max-len */
 import './styles.css';
 import { useQuery, gql } from '@apollo/client';
 import CharacterCard from '../../components/CharacterCard/CharacterCard';

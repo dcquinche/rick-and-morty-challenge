@@ -1,4 +1,4 @@
-.characterCard {
+.favoriteCard {
   justify-content: center;
   text-align: center;
   border-radius: solid 30px;
@@ -7,26 +7,17 @@
   position: relative;
 }
 
-.characterCard__image {
+.favoriteCard__image {
   height: 250px;
   width: 250px;
   border-radius: 20px 20px 20px 20px;
 }
 
-.characterCard__icon {
-  position: absolute;
-  z-index: 1;
-  top: 0;
-  right: 0;
-  transform: translate(-10px, 10px);
-  color:rgb(56, 128, 128);
-}
-
-.characterCard:hover, .characterCard__icon:hover {
+.favoriteCard:hover {
   filter: opacity(0.6) drop-shadow(0 0 0 red);
 }
 
-.characterCard__name {
+.favoriteCard__name {
   color:cornflowerblue;
 }
 
