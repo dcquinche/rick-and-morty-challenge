@@ -21,12 +21,27 @@
   color:bisque;
 }
 
+.navbar__logButton {
+  padding: 0.8em;
+  border-radius: 30px;
+  background-color:cornflowerblue;
+  color: white;
+  font-size: 16px;
+  font-weight: 700;
+  margin-top: -0.5em;
+}
+
+.navbar__logButton:hover {
+  background-color: bisque;
+  color: cornflowerblue;
+}
+
 @media (min-width: 768px) {
   .navbar {
     justify-content: right;
   }
   .navbar__pages {
     flex-direction: row;
-    margin-right: 7em;
+    margin-right: 3em;
   }
 }
