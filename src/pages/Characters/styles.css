@@ -1,0 +1,18 @@
+.characters {
+  margin: 4em 3em 4em 3em;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.characters__title {
+  text-align: center;
+}
+
+.characters__listCards {
+  margin-top: 3em;
+  display: flex;
+  gap: 70px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
