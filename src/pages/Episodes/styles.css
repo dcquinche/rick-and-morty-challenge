@@ -16,3 +16,23 @@
   flex-wrap: wrap;
   justify-content: center;
 }
+
+.episodes__filter {
+  margin-top: 2em;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-direction: column;
+}
+
+.episodes__input {
+  border-radius: 5px;
+  border: 2px solid;
+}
+
+@media (min-width: 768px) {
+  .episodes__filter {
+    flex-direction: row;
+  }
+}
