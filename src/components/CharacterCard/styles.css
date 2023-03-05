@@ -19,7 +19,7 @@
   top: 0;
   right: 0;
   transform: translate(-10px, 10px);
-  color:rgb(56, 128, 128);
+  color:gold;
 }
 
 .characterCard:hover, .characterCard__icon:hover {

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 const FavoriteCard = ({ name, image, id }) => (
-  <Link to={`/character-detail/${id}`} title="Go to Detail" className="favoriteCard">
+  <Link to={`/characters/${id}`} title="Go to Detail" className="favoriteCard">
     <figure className="favoriteCard__figures">
       <img className="favoriteCard__image" alt="character" src={image} />
     </figure>
@@ -14,7 +14,7 @@ const FavoriteCard = ({ name, image, id }) => (
 FavoriteCard.propTypes = {
   image: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
-  id: PropTypes.string.isRequired,
+  id: PropTypes.number.isRequired,
 };
 
 export default FavoriteCard;

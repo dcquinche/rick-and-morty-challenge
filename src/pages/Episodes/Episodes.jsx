@@ -1,32 +1,17 @@
 import './styles.css';
-import { useQuery, gql } from '@apollo/client';
 import { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import EpisodeCard from '../../components/EpisodeCard/EpisodeCard';
 
-const GET_ALLEPISODES = gql`
-  query GetEpisodes {
-    episodes {
-      results {
-        id
-        name
-        episode
-        air_date
-      }
-    }
-  }
-`;
-
 const Episodes = () => {
+  const { episodes } = useSelector((state) => state.episodes);
   const [results, setResults] = useState([]);
   const [search, setSearch] = useState('');
-  const { data, loading, error } = useQuery(GET_ALLEPISODES);
-  if (loading) return <h1>Loading...</h1>;
-  if (error) return <h1>Error...</h1>;
 
   useEffect(() => {
-    setResults(!search ? data.episodes.results
+    setResults(!search ? episodes
       // eslint-disable-next-line max-len
-      : data.episodes.results.filter((episode) => episode.name.toLowerCase().includes(search.toLocaleLowerCase())));
+      : episodes.filter((episode) => episode.name.toLowerCase().includes(search.toLocaleLowerCase())));
   }, [search]);
 
   const handleChange = ({ target }) => {

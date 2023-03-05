@@ -7,7 +7,7 @@ const CharacterCardDetail = ({
 }) => {
   const navigate = useNavigate();
   const handleClickCharacters = () => {
-    navigate('/');
+    navigate('/characters');
   };
 
   return (

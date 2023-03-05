@@ -1,31 +1,14 @@
 import './styles.css';
-import { useQuery, gql } from '@apollo/client';
 import { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import CharacterCard from '../../components/CharacterCard/CharacterCard';
 
-const GET_ALLCHARACTERS = gql`
-  query GetCharacters {
-    characters {
-      results {
-        id
-        name
-        image
-        status
-        gender
-        species
-      }
-    }
-  }
-`;
-
 const Characters = () => {
-  const [results, setResults] = useState([]);
+  const { characters } = useSelector((state) => state.characters);
+  const [results, setResults] = useState(characters);
   const [status, setStatus] = useState('');
   const [species, setSpecies] = useState('');
   const [gender, setGender] = useState('');
-  const { data, loading, error } = useQuery(GET_ALLCHARACTERS);
-  if (loading) return <h1>Loading...</h1>;
-  if (error) return <h1>Error...</h1>;
 
   useEffect(() => {
     document.querySelector('#dropdownStatus').value = 'Status';
@@ -34,18 +17,18 @@ const Characters = () => {
   }, [status, species, gender]);
 
   useEffect(() => {
-    setResults(!status ? data.characters.results
-      : data.characters.results.filter((character) => character.status === status));
+    setResults(!status ? characters
+      : characters.filter((character) => character.status === status));
   }, [status]);
 
   useEffect(() => {
-    setResults(!species ? data.characters.results
-      : data.characters.results.filter((character) => character.species === species));
+    setResults(!species ? characters
+      : characters.filter((character) => character.species === species));
   }, [species]);
 
   useEffect(() => {
-    setResults(!gender ? data.characters.results
-      : data.characters.results.filter((character) => character.gender === gender));
+    setResults(!gender ? characters
+      : characters.filter((character) => character.gender === gender));
   }, [gender]);
 
   const handleClickStatus = () => {
@@ -88,7 +71,7 @@ const Characters = () => {
   };
 
   const handleClickReset = () => {
-    setResults(data.characters.results);
+    setResults(characters);
   };
 
   return (

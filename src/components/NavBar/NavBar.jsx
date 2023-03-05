@@ -4,7 +4,7 @@ import './styles.css';
 import { useAuth0 } from '@auth0/auth0-react';
 import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faRightToBracket, faRightFromBracket, faHeart } from '@fortawesome/free-solid-svg-icons';
+import { faRightToBracket, faRightFromBracket, faStar } from '@fortawesome/free-solid-svg-icons';
 
 const NavBar = () => {
   const {
@@ -13,7 +13,7 @@ const NavBar = () => {
   const navigate = useNavigate();
 
   const handleClickCharacters = () => {
-    navigate('/');
+    navigate('/characters');
   };
 
   const handleClickEpisodes = () => {
@@ -37,7 +37,7 @@ const NavBar = () => {
         <section className="navbar__lists">
           { isAuthenticated ? (
             <div className="navbar__pages">
-              <FontAwesomeIcon className="navbar__logButton" icon={faHeart} title="Favorites" onClick={handleClickFavorites} />
+              <FontAwesomeIcon className="navbar__logButton" icon={faStar} title="Favorites" onClick={handleClickFavorites} />
               <FontAwesomeIcon className="navbar__logButton" icon={faRightFromBracket} title="Log Out" onClick={logout} />
             </div>
           ) : (
