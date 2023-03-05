@@ -22,11 +22,20 @@
   color:gold;
 }
 
-.characterCard:hover, .characterCard__icon:hover {
-  filter: opacity(0.6) drop-shadow(0 0 0 red);
+.characterCard__button:hover, .characterCard__icon:hover {
+  filter: opacity(0.6) drop-shadow(0 0 0 blueviolet);
 }
 
 .characterCard__name {
   color:cornflowerblue;
+}
+
+.characterCard__button {
+  margin-top: 0.5em;
+  padding: 0.5em;
+  border-radius: 10px;
+  border: 0;
+  background-color: cornflowerblue;
+  color: white;
 }
 

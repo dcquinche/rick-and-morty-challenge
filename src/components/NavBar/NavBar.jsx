@@ -8,7 +8,7 @@ import { faRightToBracket, faRightFromBracket, faStar } from '@fortawesome/free-
 
 const NavBar = () => {
   const {
-    loginWithRedirect, logout, isAuthenticated,
+    loginWithRedirect, logout, isAuthenticated, user,
   } = useAuth0();
   const navigate = useNavigate();
 
@@ -30,20 +30,21 @@ const NavBar = () => {
 
   return (
     <nav className="navbar">
+      <section className="navbar__lists">
+        { isAuthenticated ? (
+          <div className="navbar__profile">
+            <img className="navbar__logButton" alt="profile" src={user.picture} />
+            <FontAwesomeIcon className="navbar__logButton" icon={faStar} title="Favorites" onClick={handleClickFavorites} />
+            <FontAwesomeIcon className="navbar__logButton" icon={faRightFromBracket} title="Log Out" onClick={logout} />
+          </div>
+        ) : (
+          <FontAwesomeIcon className="navbar__logButton" icon={faRightToBracket} title="Log In" onClick={loginWithRedirect} />
+        )}
+      </section>
       <section className="navbar__pages">
         <p className="navbar__lists" onClick={handleClickCharacters}>Characters</p>
         <p className="navbar__lists" onClick={handleClickEpisodes}>Episodes</p>
         <p className="navbar__lists" onClick={handleClickLocations}>Locations</p>
-        <section className="navbar__lists">
-          { isAuthenticated ? (
-            <div className="navbar__pages">
-              <FontAwesomeIcon className="navbar__logButton" icon={faStar} title="Favorites" onClick={handleClickFavorites} />
-              <FontAwesomeIcon className="navbar__logButton" icon={faRightFromBracket} title="Log Out" onClick={logout} />
-            </div>
-          ) : (
-            <FontAwesomeIcon className="navbar__logButton" icon={faRightToBracket} title="Log In" onClick={loginWithRedirect} />
-          )}
-        </section>
       </section>
     </nav>
 

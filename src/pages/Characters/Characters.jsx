@@ -1,6 +1,7 @@
 import './styles.css';
 import { useState, useEffect } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { getAllCharacters } from '../../features/characters';
 import CharacterCard from '../../components/CharacterCard/CharacterCard';
 
 const Characters = () => {
@@ -9,6 +10,11 @@ const Characters = () => {
   const [status, setStatus] = useState('');
   const [species, setSpecies] = useState('');
   const [gender, setGender] = useState('');
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getAllCharacters());
+  }, []);
 
   useEffect(() => {
     document.querySelector('#dropdownStatus').value = 'Status';

@@ -1,12 +1,18 @@
 import './styles.css';
 import { useState, useEffect } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { getAllLoctations } from '../../features/locations';
 import LocationCard from '../../components/LocationCard/LocationCard';
 
 const Locations = () => {
   const { locations } = useSelector((state) => state.locations);
   const [results, setResults] = useState([]);
   const [search, setSearch] = useState('');
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getAllLoctations());
+  }, []);
 
   useEffect(() => {
     setResults(!search ? locations

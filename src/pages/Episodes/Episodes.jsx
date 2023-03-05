@@ -1,12 +1,18 @@
 import './styles.css';
 import { useState, useEffect } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { getAllEpisodes } from '../../features/episodes';
 import EpisodeCard from '../../components/EpisodeCard/EpisodeCard';
 
 const Episodes = () => {
   const { episodes } = useSelector((state) => state.episodes);
   const [results, setResults] = useState([]);
   const [search, setSearch] = useState('');
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getAllEpisodes());
+  }, []);
 
   useEffect(() => {
     setResults(!search ? episodes
